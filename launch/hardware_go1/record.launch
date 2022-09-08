@@ -1,0 +1,8 @@
+<launch>
+
+    <arg name="camera_topics" defualt="/camera_forward/infra1/image_rect_raw /camera_forward/infra2/image_rect_raw" />
+    <arg name="imu_topic" default="/hardware_go1/imu"/>
+    <arg name="leg_topic" default="/hardware_go1/joint_foot"/>
+
+    <node pkg="rosbag" type="record" name="vilo_input_record" args="record $(arg camera_topics) $(arg imu_topic) $(arg leg_topic) -o $(find vilo)/bags/vilo --tcpnodelay" />
+</launch>
